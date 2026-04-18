@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: backend
-         image: hashicorp/http-echo
-      args:
-       - "-text=Hello from Notes Backend 🚀"
-      ports:
-       - containerPort: 5678
+        image: hashicorp/http-echo
+        args:
+          - "-text=Hello from Notes Backend 🚀"
+        ports:
+          - containerPort: 5678

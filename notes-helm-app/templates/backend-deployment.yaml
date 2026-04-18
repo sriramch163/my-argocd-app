@@ -14,19 +14,8 @@ spec:
     spec:
       containers:
       - name: backend
-        image: {{ .Values.backend.image }}
-        command: ["/bin/sh"]
-        args:
-          - "-c"
-          - |
-            echo "const express = require('express');
-            const app = express();
-            app.use(express.json());
-            let notes = [];
-            app.get('/notes', (req,res)=>res.json(notes));
-            app.post('/notes', (req,res)=>{notes.push(req.body);res.send('added');});
-            app.listen(3000);" > app.js
-            npm init -y && npm install express
-            node app.js
-        ports:
-        - containerPort: 3000
+         image: hashicorp/http-echo
+      args:
+       - "-text=Hello from Notes Backend 🚀"
+      ports:
+       - containerPort: 5678

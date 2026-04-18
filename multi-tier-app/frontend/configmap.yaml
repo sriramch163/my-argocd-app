@@ -16,7 +16,7 @@ data:
 
       <script>
         function callBackend() {
-          fetch('http://backend-api')
+          fetch('/api')
             .then(res => res.text())
             .then(data => {
               document.getElementById('result').innerText = data;

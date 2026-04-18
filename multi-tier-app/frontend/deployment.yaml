@@ -21,7 +21,14 @@ spec:
         - name: html
           mountPath: /usr/share/nginx/html/index.html
           subPath: index.html
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+
       volumes:
       - name: html
         configMap:
           name: frontend-html
+      - name: nginx-config
+        configMap:
+          name: nginx-config

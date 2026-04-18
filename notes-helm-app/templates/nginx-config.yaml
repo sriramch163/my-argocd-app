@@ -15,7 +15,8 @@ data:
         }
 
         location /api/ {
-          proxy_pass http://notes-backend/;
+          rewrite ^/api/(.*)$ /$1 break;
+          proxy_pass http://notes-backend;
         }
       }
     }

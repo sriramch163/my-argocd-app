@@ -1,0 +1,10 @@
+backend:
+  replicas: 2
+  image: node:18-alpine
+
+frontend:
+  replicas: 2
+  image: nginx
+
+service:
+  type: LoadBalancer

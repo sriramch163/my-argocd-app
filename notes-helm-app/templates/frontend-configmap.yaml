@@ -9,24 +9,24 @@ data:
     <body>
       <h1>Notes App</h1>
       <input id="note" placeholder="Enter note"/>
-      <button onclick="addNote()">Add</button>
-      <button onclick="getNotes()">Show Notes</button>
+      <button onclick="addNote()">Call Backend</button>
+      <button onclick="getNotes()">Call Backend Again</button>
       <pre id="output"></pre>
 
       <script>
         function addNote() {
-          fetch('/api/notes', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({text: document.getElementById('note').value})
-          });
+          fetch('/api/')
+            .then(res => res.text())
+            .then(data => {
+              document.getElementById('output').innerText = data;
+            });
         }
 
         function getNotes() {
-          fetch('/api/notes')
-            .then(res => res.json())
+          fetch('/api/')
+            .then(res => res.text())
             .then(data => {
-              document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+              document.getElementById('output').innerText = data;
             });
         }
       </script>

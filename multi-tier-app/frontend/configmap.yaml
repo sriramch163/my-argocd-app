@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-html
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Multi App Demo</title>
+    </head>
+    <body>
+      <h1>Frontend</h1>
+      <button onclick="callBackend()">Call Backend</button>
+      <p id="result"></p>
+
+      <script>
+        function callBackend() {
+          fetch('http://backend-api')
+            .then(res => res.text())
+            .then(data => {
+              document.getElementById('result').innerText = data;
+            });
+        }
+      </script>
+    </body>
+    </html>
